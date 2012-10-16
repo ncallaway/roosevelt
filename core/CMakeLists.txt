@@ -7,10 +7,12 @@ set(INCLUDES
 	private_include)
 
 set(SOURCES
-    src/doprint.cpp
+    src/Entity.cpp
 )
 
+file(GLOB INCLUDE_FILES "include/*.h" "private_include/*.h")
+
 include_directories(${INCLUDES})
-add_library(core ${SOURCES})
+add_library(core ${SOURCES} ${INCLUDE_FILES})
 
 add_subdirectory(test)

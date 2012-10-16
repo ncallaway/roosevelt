@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <math.h>
 
-#include "doprint.h"
+#include "Entity.h"
 
 int main (int argc, char *argv[])
 {
@@ -16,7 +16,10 @@ int main (int argc, char *argv[])
   double outputValue = sqrt(inputValue);
   fprintf(stdout,"The square root of %g is %g\n",
           inputValue, outputValue);
-		  
-  fprintf(stdout,"Result of doprint: %d", doprint());
+
+  Entity* entity = new Entity();
+  entity->set_id("Quick test");
+
+  fprintf(stdout, "Result of doprint: %s", entity->get_id().c_str());
   return 0;
 }

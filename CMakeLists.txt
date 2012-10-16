@@ -5,6 +5,9 @@ cmake_minimum_required (VERSION 2.6)
 # 5, which breaks gtest.
 add_definitions(-D_VARIADIC_MAX=10)
 
+# Force gtest to use shared crt libraries instead of static ones.
+set(gtest_force_shared_crt ON)
+
 add_subdirectory(gtest)
 add_subdirectory(core)
 add_subdirectory(win)

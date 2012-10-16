@@ -11,7 +11,6 @@ set(SOURCES
 set(LIBS
 	core)
 
-
 include_directories(${INCLUDES})
 add_executable(roosevelt ${SOURCES})
 target_link_libraries (roosevelt ${LIBS})
