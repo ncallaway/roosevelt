@@ -12,3 +12,5 @@ set(SOURCES
 
 include_directories(${INCLUDES})
 add_library(core ${SOURCES})
+
+add_subdirectory(test)

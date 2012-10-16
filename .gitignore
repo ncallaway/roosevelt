@@ -1,2 +1,5 @@
 # Build directory
 build/
+
+# Dependencies which you should acquire yourself!
+gtest/
