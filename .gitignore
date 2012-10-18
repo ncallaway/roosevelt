@@ -1,5 +1,6 @@
-# Build directory
+# Output directories
 build/
+doc/
 
 # Dependencies which you should acquire yourself!
 gtest/
