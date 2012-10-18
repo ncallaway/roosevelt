@@ -8,6 +8,7 @@ set(INCLUDES
 
 set(SOURCES
     src/Entity.cpp
+    src/EntityContainer.cpp
     src/BaseComponent.cpp
     src/PositionComponent.cpp
 )

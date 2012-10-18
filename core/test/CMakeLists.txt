@@ -13,7 +13,8 @@ set(INCLUDES
 	../../gtest/include)
 
 set(SOURCES
-    src/EntityTest.cpp)
+    src/EntityTest.cpp
+    src/EntityContainerTest.cpp)
 
 include_directories(${INCLUDES})
 add_executable(coreTests ${SOURCES})
