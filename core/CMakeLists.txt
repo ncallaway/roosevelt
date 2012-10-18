@@ -8,6 +8,8 @@ set(INCLUDES
 
 set(SOURCES
     src/Entity.cpp
+    src/BaseComponent.cpp
+    src/PositionComponent.cpp
 )
 
 file(GLOB INCLUDE_FILES "include/*.h" "private_include/*.h")

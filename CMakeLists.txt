@@ -6,7 +6,8 @@ cmake_minimum_required (VERSION 2.6)
 add_definitions(-D_VARIADIC_MAX=10)
 
 # Force gtest to use shared crt libraries instead of static ones.
-set(gtest_force_shared_crt ON)
+# From http://comments.gmane.org/gmane.comp.programming.tools.cmake.user/39115
+set(gtest_force_shared_crt ON CACHE BOOL "Use shared (DLL) run-time lib even when Google Test is built as static lib.")
 
 add_subdirectory(gtest)
 add_subdirectory(core)

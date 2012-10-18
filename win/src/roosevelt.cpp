@@ -18,8 +18,8 @@ int main (int argc, char *argv[])
           inputValue, outputValue);
 
   Entity* entity = new Entity();
-  entity->set_id("Quick test");
+  entity->SetId("Quick test");
 
-  fprintf(stdout, "Result of doprint: %s", entity->get_id().c_str());
+  fprintf(stdout, "Result of doprint: %s", entity->GetId().c_str());
   return 0;
 }
