@@ -11,6 +11,8 @@ set(SOURCES
     src/EntityContainer.cpp
     src/BaseComponent.cpp
     src/PositionComponent.cpp
+    src/MoverSystem.cpp
+    src/PrinterSystem.cpp
 )
 
 file(GLOB INCLUDE_FILES "include/*.h" "private_include/*.h")

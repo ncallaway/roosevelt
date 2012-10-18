@@ -1,3 +1,6 @@
+#ifndef ENTITY_CONTAINER
+#define ENTITY_CONTAINER
+
 #include <set>
 
 class Entity;
@@ -15,3 +18,5 @@ class EntityContainer {
     private:
         std::set<Entity*> m_entities;
 };
+
+#endif // ENTITY_CONTAINER

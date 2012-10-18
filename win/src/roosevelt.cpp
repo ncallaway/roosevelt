@@ -1,25 +1,37 @@
 // A simple program that computes the square root of a number
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
+#include <stdio.h>
 
+#include "EntityContainer.h"
+#include "PositionComponent.h"
+#include "MoverSystem.h"
+#include "PrinterSystem.h"
+#include "EntityContainer.h"
 #include "Entity.h"
 
-int main (int argc, char *argv[])
-{
-  if (argc < 2)
-    {
-    fprintf(stdout,"Usage: %s number\n",argv[0]);
-    return 1;
+int main (int argc, char *argv[]) {
+    EntityContainer* world = new EntityContainer();
+    Entity* entity = new Entity();
+    entity->SetId("XKCD");
+
+    world->AddEntity(entity);
+
+    PositionComponent* startingPosition = new PositionComponent();
+    startingPosition->SetY(10);
+    startingPosition->SetX(-10);
+
+    entity->AddComponent(startingPosition);
+
+    IEntitySystem* mover = new MoverSystem();
+    IEntitySystem* printer = new PrinterSystem();
+
+    for (int i=0; i<100; i++) {
+        mover->Update(world);
+        if (i%2 == 0) {
+            printer->Update(world);
+        }
     }
-  double inputValue = atof(argv[1]);
-  double outputValue = sqrt(inputValue);
-  fprintf(stdout,"The square root of %g is %g\n",
-          inputValue, outputValue);
 
-  Entity* entity = new Entity();
-  entity->SetId("Quick test");
-
-  fprintf(stdout, "Result of doprint: %s", entity->GetId().c_str());
-  return 0;
+    return 0;
 }
