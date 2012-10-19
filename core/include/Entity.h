@@ -69,7 +69,27 @@ public:
      the given ComponentType GetComponent() will return NULL.
     */
     IComponent* GetComponent(ComponentType type);
+
+	/**
+	 Add an IComponent to this Entity. If the Entity already has an IComponent of the given
+	 ComponentType the new component will not be added.
+
+	 \param component IComponent to add to this Entity. If the Entity already has an IComponent of
+	 the given ComponentType, component will not be added to the Entity. If this is NULL then
+	 AddComponent() will return NULL.
+	 \return True if the IComponent was added to the Entity. False if the Entity already contains
+	 a Component with the same type, or if the given IComponent is NULL.
+	*/
     bool AddComponent(IComponent* component);
+
+	/**
+	 Remove a Component from this Entity. If the Entity does not have an IComponent of the given
+	 type, this will return false.
+
+	 \param type The ComponentType of the IComponent to remove.
+	 \return True if the Entity contains an IComponent of the given type, and it was removed.
+	 False, otherwise.
+	*/
     bool RemoveComponent(ComponentType type);
 
 private:
