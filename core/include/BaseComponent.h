@@ -1,3 +1,6 @@
+#ifndef BASE_COMPONENT
+#define BASE_COMPONENT
+
 #include "IComponent.h"
 
 class BaseComponent : public IComponent {
@@ -10,3 +13,5 @@ class BaseComponent : public IComponent {
 	protected:
 		ComponentType m_type;
 };
+
+#endif // BASE_COMPONENT

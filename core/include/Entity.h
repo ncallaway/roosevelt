@@ -1,3 +1,6 @@
+#ifndef ENTITY
+#define ENTITY
+
 #include <string>
 #include <map>
 
@@ -74,3 +77,5 @@ private:
 
     std::map<ComponentType, IComponent*> m_components;
 };
+
+#endif // ENTITY
