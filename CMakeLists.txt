@@ -11,4 +11,5 @@ set(gtest_force_shared_crt ON CACHE BOOL "Use shared (DLL) run-time lib even whe
 
 add_subdirectory(gtest)
 add_subdirectory(core)
+add_subdirectory(roosevelt)
 add_subdirectory(win)

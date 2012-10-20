@@ -1,20 +1,18 @@
 set(MSVC_INCREMENTAL_DEFAULT OFF)
 
-project (roosevelt)
+project (winroosevelt)
 
 set(INCLUDES
-	include
-	../core/include)
+	../core/include
+	../roosevelt/include)
 
 set(SOURCES
-    src/roosevelt.cpp
-	src/MoverSystem.cpp
-    src/PositionComponent.cpp
-    src/PrinterSystem.cpp)
+    src/roosevelt.cpp)
 
 set(LIBS
-	core)
+	core
+	roosevelt)
 
 include_directories(${INCLUDES})
-add_executable(roosevelt ${SOURCES})
-target_link_libraries (roosevelt ${LIBS})
+add_executable(winroosevelt ${SOURCES})
+target_link_libraries (winroosevelt ${LIBS})
