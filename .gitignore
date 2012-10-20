@@ -4,3 +4,6 @@ doc/
 
 # Dependencies which you should acquire yourself!
 gtest/
+
+# Developer configuration stuff
+dev.config

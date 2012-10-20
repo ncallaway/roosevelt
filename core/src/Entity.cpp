@@ -1,6 +1,6 @@
 #include "Entity.h"
 
-#include "IComponent.h"
+#include "EntityComponent.h"
 
 void Entity::SetId(std::string id) {
 	m_id = id;
@@ -10,7 +10,7 @@ std::string Entity::GetId() {
 	return m_id;
 }
 
-bool Entity::AddComponent(IComponent* component) {
+bool Entity::AddComponent(EntityComponent* component) {
     if (component == NULL) {
         return false;
     }
@@ -38,7 +38,7 @@ bool Entity::RemoveComponent(ComponentType type) {
     return false;
 }
 
-IComponent* Entity::GetComponent(ComponentType type) {
+EntityComponent* Entity::GetComponent(ComponentType type) {
     if (HasComponent(type)) {
         return m_components[type];
     }

@@ -4,8 +4,6 @@
 /**
  ComponentType represents the various types of components that can be attached to an Entity.
 */
-enum ComponentType {
-	POSITION_COMPONENT  /**< A component that carries information about an Entities position */
-};
+typedef int ComponentType;
 
 #endif // COMPONENT_TYPE

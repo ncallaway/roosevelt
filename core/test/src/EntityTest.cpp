@@ -1,6 +1,17 @@
 #include "Entity.h"
-#include "PositionComponent.h"
+#include "BaseComponent.h"
 #include "gtest/gtest.h"
+
+class TestComponent : public BaseComponent {
+    public:
+        TestComponent();
+        static const ComponentType TYPE;
+};
+
+TestComponent::TestComponent() : BaseComponent(TYPE) {
+}
+
+const ComponentType TestComponent::TYPE = EntityComponent::RegisterComponent();
 
 TEST(EntityId, SetId) {
 	Entity* entity = new Entity();
@@ -13,73 +24,73 @@ TEST(EntityComponent, HasComponent) {
 	Entity* entity = new Entity();
 
     /* Start with no components */
-    EXPECT_FALSE(entity->HasComponent(POSITION_COMPONENT));
+    EXPECT_FALSE(entity->HasComponent(TestComponent::TYPE));
 
     /* Have a component after adding one. */
-    entity->AddComponent(new PositionComponent());
-    EXPECT_TRUE(entity->HasComponent(POSITION_COMPONENT));
+    entity->AddComponent(new TestComponent());
+    EXPECT_TRUE(entity->HasComponent(TestComponent::TYPE));
 
     /* Don't have a component after adding one. */
-    entity->RemoveComponent(POSITION_COMPONENT);
-    EXPECT_FALSE(entity->HasComponent(POSITION_COMPONENT));
+    entity->RemoveComponent(TestComponent::TYPE);
+    EXPECT_FALSE(entity->HasComponent(TestComponent::TYPE));
 }
 
 TEST(EntityComponent, GetComponent) {
 	Entity* entity = new Entity();
-     IComponent* positionComponent = new PositionComponent();
+     EntityComponent* testComponent = new TestComponent();
 
     /* Null when there is no component */
-    EXPECT_EQ(NULL, entity->GetComponent(POSITION_COMPONENT));
+    EXPECT_EQ(NULL, entity->GetComponent(TestComponent::TYPE));
 
     /* Now return the type we've added */
-    entity->AddComponent(positionComponent);
-    EXPECT_EQ(positionComponent, entity->GetComponent(POSITION_COMPONENT));
+    entity->AddComponent(testComponent);
+    EXPECT_EQ(testComponent, entity->GetComponent(TestComponent::TYPE));
 
     /* And null after we remove it */
-    entity->RemoveComponent(POSITION_COMPONENT);
-    EXPECT_EQ(NULL, entity->GetComponent(POSITION_COMPONENT));
+    entity->RemoveComponent(TestComponent::TYPE);
+    EXPECT_EQ(NULL, entity->GetComponent(TestComponent::TYPE));
 }
 
 TEST(EntityComponent, AddComponent) {
 	Entity* entity = new Entity();
-    IComponent* positionComponent = new PositionComponent();
+    EntityComponent* testComponent = new TestComponent();
 
     /* Can add the component */
-    EXPECT_TRUE(entity->AddComponent(positionComponent));
+    EXPECT_TRUE(entity->AddComponent(testComponent));
 
     /* Can get the component we originally added */
-    EXPECT_EQ(positionComponent, entity->GetComponent(POSITION_COMPONENT));
+    EXPECT_EQ(testComponent, entity->GetComponent(TestComponent::TYPE));
 
     /* Can re-add the same component */
-    EXPECT_TRUE(entity->AddComponent(positionComponent));
+    EXPECT_TRUE(entity->AddComponent(testComponent));
 
     /* Cannot add a different component of the same type */
-    IComponent* alternatePositionComponent = new PositionComponent();
-    EXPECT_FALSE(entity->AddComponent(alternatePositionComponent));
+    EntityComponent* alternateTestComponent = new TestComponent();
+    EXPECT_FALSE(entity->AddComponent(alternateTestComponent));
 
     /* After trying to add a different component, we still get the original back */
-    EXPECT_EQ(positionComponent, entity->GetComponent(POSITION_COMPONENT));
+    EXPECT_EQ(testComponent, entity->GetComponent(TestComponent::TYPE));
 
     /* Cannot add a NULL component */
     EXPECT_FALSE(entity->AddComponent(NULL));
 
     /* After removing can re-add the alternate component */
-    entity->RemoveComponent(POSITION_COMPONENT);
-    EXPECT_TRUE(entity->AddComponent(alternatePositionComponent));
-    EXPECT_EQ(alternatePositionComponent, entity->GetComponent(POSITION_COMPONENT));
+    entity->RemoveComponent(TestComponent::TYPE);
+    EXPECT_TRUE(entity->AddComponent(alternateTestComponent));
+    EXPECT_EQ(alternateTestComponent, entity->GetComponent(TestComponent::TYPE));
 }
 
 TEST(EntityComponent, RemoveComponent) {
 	Entity* entity = new Entity();
 
     /* Nothing happens when there is nothing to remove. */
-    EXPECT_FALSE(entity->RemoveComponent(POSITION_COMPONENT));
+    EXPECT_FALSE(entity->RemoveComponent(TestComponent::TYPE));
 
     /* Can now remove the component */
-    entity->AddComponent(new PositionComponent());
-    EXPECT_TRUE(entity->RemoveComponent(POSITION_COMPONENT));
+    entity->AddComponent(new TestComponent());
+    EXPECT_TRUE(entity->RemoveComponent(TestComponent::TYPE));
 
     /* And now there's nothing to remove */
-    EXPECT_FALSE(entity->RemoveComponent(POSITION_COMPONENT));
+    EXPECT_FALSE(entity->RemoveComponent(TestComponent::TYPE));
 }
 

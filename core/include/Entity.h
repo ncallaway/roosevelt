@@ -6,7 +6,7 @@
 
 #include "ComponentType.h"
 
-class IComponent;
+class EntityComponent;
 
 /**
   The class that represents any "thing" in the game world.
@@ -47,7 +47,7 @@ public:
     void SetId(std::string id);
 
     /**
-     Determine whether this Entity has an IComponent of the given ComponentType. Each Entity may only
+     Determine whether this Entity has an EntityComponent of the given ComponentType. Each Entity may only
      have one component of any type, thus if this returns true you may not add a Component with the
      same type.
 
@@ -58,36 +58,36 @@ public:
     bool HasComponent(ComponentType type);
 
     /**
-     Get the IComponent that this Entity contains that matches the given ComponentType. If this
-     Entity does not contain an IComponent that has a type matching the 'type' parameter,
+     Get the EntityComponent that this Entity contains that matches the given ComponentType. If this
+     Entity does not contain an EntityComponent that has a type matching the 'type' parameter,
      GetComponent() will return NULL.
 
-     \param type The ComponentType of the IComponent to retrieve from this Entity.
-     \return The IComponent that this Entity contains that matches the 'type' parameter. Each
-     Entity may only contain a single IComponent for a given type, so this will be the only
-     IComponent that matches this type. If the Entity does not contain an IComponent that matches
+     \param type The ComponentType of the EntityComponent to retrieve from this Entity.
+     \return The EntityComponent that this Entity contains that matches the 'type' parameter. Each
+     Entity may only contain a single EntityComponent for a given type, so this will be the only
+     EntityComponent that matches this type. If the Entity does not contain an EntityComponent that matches
      the given ComponentType GetComponent() will return NULL.
     */
-    IComponent* GetComponent(ComponentType type);
+    EntityComponent* GetComponent(ComponentType type);
 
 	/**
-	 Add an IComponent to this Entity. If the Entity already has an IComponent of the given
+	 Add an EntityComponent to this Entity. If the Entity already has an EntityComponent of the given
 	 ComponentType the new component will not be added.
 
-	 \param component IComponent to add to this Entity. If the Entity already has an IComponent of
+	 \param component EntityComponent to add to this Entity. If the Entity already has an EntityComponent of
 	 the given ComponentType, component will not be added to the Entity. If this is NULL then
 	 AddComponent() will return NULL.
-	 \return True if the IComponent was added to the Entity. False if the Entity already contains
-	 a Component with the same type, or if the given IComponent is NULL.
+	 \return True if the EntityComponent was added to the Entity. False if the Entity already contains
+	 a Component with the same type, or if the given EntityComponent is NULL.
 	*/
-    bool AddComponent(IComponent* component);
+    bool AddComponent(EntityComponent* component);
 
 	/**
-	 Remove a Component from this Entity. If the Entity does not have an IComponent of the given
+	 Remove a Component from this Entity. If the Entity does not have an EntityComponent of the given
 	 type, this will return false.
 
-	 \param type The ComponentType of the IComponent to remove.
-	 \return True if the Entity contains an IComponent of the given type, and it was removed.
+	 \param type The ComponentType of the EntityComponent to remove.
+	 \return True if the Entity contains an EntityComponent of the given type, and it was removed.
 	 False, otherwise.
 	*/
     bool RemoveComponent(ComponentType type);
@@ -95,7 +95,7 @@ public:
 private:
     std::string m_id;
 
-    std::map<ComponentType, IComponent*> m_components;
+    std::map<ComponentType, EntityComponent*> m_components;
 };
 
 #endif // ENTITY

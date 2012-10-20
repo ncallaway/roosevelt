@@ -1,13 +1,13 @@
 #ifndef BASE_COMPONENT
 #define BASE_COMPONENT
 
-#include "IComponent.h"
+#include "EntityComponent.h"
 
 /**
- A basic implementation of IComponent that takes a type in the constructor and returns that type
+ A basic implementation of EntityComponent that takes a type in the constructor and returns that type
  in the GetType function.
 */
-class BaseComponent : public IComponent {
+class BaseComponent : public EntityComponent {
 	protected:
 		/**
 		 \param type The ComponentType to return in the GetType() function call.

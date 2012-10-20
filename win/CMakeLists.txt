@@ -3,10 +3,14 @@ set(MSVC_INCREMENTAL_DEFAULT OFF)
 project (roosevelt)
 
 set(INCLUDES
+	include
 	../core/include)
 
 set(SOURCES
-    src/roosevelt.cpp)
+    src/roosevelt.cpp
+	src/MoverSystem.cpp
+    src/PositionComponent.cpp
+    src/PrinterSystem.cpp)
 
 set(LIBS
 	core)
