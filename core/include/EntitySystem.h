@@ -4,10 +4,10 @@
 class EntityContainer;
 
 /**
- IEntitySystem is the interface that EntitySystems must implement. These will be used to drive the
+ EntitySystem is the interface that EntitySystems must implement. These will be used to drive the
  main logic of the game.
 
- An IEntitySystem processes on sets of Entities within an EntityContainer. The IEntitySystem uses
+ An EntitySystem processes on sets of Entities within an EntityContainer. The EntitySystem uses
  the Query mechanism provided by the EntityContainer to retrive Entities it is interested in
  dealing with. It then uses the data in the EntityComponents of the Entities to drive the game logic.
 
@@ -15,12 +15,12 @@ class EntityContainer;
  PHYSICS_COMPONENT. The PhysicsSystem might then apply velocity and collisions to the various
  Entities, and update the data in the relative components.
 */
-class IEntitySystem {
+class EntitySystem {
     public:
         /**
          Virtaul destructor! Yay not memory leaks.
         */
-        virtual ~IEntitySystem() {}
+        virtual ~EntitySystem() {}
 
         /**
          Update the Entities within the given EntityContainer

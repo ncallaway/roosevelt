@@ -23,8 +23,8 @@ int main (int argc, char *argv[]) {
 
     entity->AddComponent(startingPosition);
 
-    IEntitySystem* mover = new MoverSystem();
-    IEntitySystem* printer = new PrinterSystem();
+    EntitySystem* mover = new MoverSystem();
+    EntitySystem* printer = new PrinterSystem();
 
     for (int i=0; i<100; i++) {
         mover->Update(world);
