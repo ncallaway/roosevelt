@@ -2,15 +2,18 @@
 
 #include "EntityComponent.h"
 
-void Entity::SetId(std::string id) {
-	m_id = id;
+void Entity::SetId(std::string id)
+{
+    m_id = id;
 }
 
-std::string Entity::GetId() {
-	return m_id;
+std::string Entity::GetId()
+{
+    return m_id;
 }
 
-bool Entity::AddComponent(EntityComponent* component) {
+bool Entity::AddComponent(EntityComponent* component)
+{
     if (component == NULL) {
         return false;
     }
@@ -29,7 +32,8 @@ bool Entity::AddComponent(EntityComponent* component) {
     return true;
 }
 
-bool Entity::RemoveComponent(ComponentType type) {
+bool Entity::RemoveComponent(ComponentType type)
+{
     if (HasComponent(type)) {
         m_components.erase(type);
         return true;
@@ -38,7 +42,8 @@ bool Entity::RemoveComponent(ComponentType type) {
     return false;
 }
 
-EntityComponent* Entity::GetComponent(ComponentType type) {
+EntityComponent* Entity::GetComponent(ComponentType type)
+{
     if (HasComponent(type)) {
         return m_components[type];
     }
@@ -46,6 +51,7 @@ EntityComponent* Entity::GetComponent(ComponentType type) {
     return NULL;
 }
 
-bool Entity::HasComponent(ComponentType type) {
+bool Entity::HasComponent(ComponentType type)
+{
     return (m_components.count(type) > 0);
 }

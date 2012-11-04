@@ -10,13 +10,14 @@ class IRenderer;
  A dumb demo system that renders the position of Entities that have a PositionComponent and a
  RenderComponent.
 */
-class RenderSystem : public EntitySystem {
+class RenderSystem : public EntitySystem
+{
     public:
-		RenderSystem(IRenderer* renderer);
+        RenderSystem(IRenderer* renderer);
         virtual void Update(EntityContainer* container /* OTHER ARGS (like dt) here */);
 
-	private:
-		IRenderer* mp_renderer;
+    private:
+        IRenderer* mp_renderer;
 };
 
 #endif // RENDER_SYSTEM

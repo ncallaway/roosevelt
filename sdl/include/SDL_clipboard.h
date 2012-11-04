@@ -35,36 +35,36 @@
 #ifdef __cplusplus
 /* *INDENT-OFF* */
 extern "C" {
-/* *INDENT-ON* */
+    /* *INDENT-ON* */
 #endif
 
-/* Function prototypes */
+    /* Function prototypes */
 
-/**
- * \brief Put UTF-8 text into the clipboard
- *
- * \sa SDL_GetClipboardText()
- */
-extern DECLSPEC int SDLCALL SDL_SetClipboardText(const char *text);
+    /**
+     * \brief Put UTF-8 text into the clipboard
+     *
+     * \sa SDL_GetClipboardText()
+     */
+    extern DECLSPEC int SDLCALL SDL_SetClipboardText(const char* text);
 
-/**
- * \brief Get UTF-8 text from the clipboard, which must be freed with SDL_free()
- *
- * \sa SDL_SetClipboardText()
- */
-extern DECLSPEC char * SDLCALL SDL_GetClipboardText(void);
+    /**
+     * \brief Get UTF-8 text from the clipboard, which must be freed with SDL_free()
+     *
+     * \sa SDL_SetClipboardText()
+     */
+    extern DECLSPEC char* SDLCALL SDL_GetClipboardText(void);
 
-/**
- * \brief Returns a flag indicating whether the clipboard exists and contains a text string that is non-empty
- *
- * \sa SDL_GetClipboardText()
- */
-extern DECLSPEC SDL_bool SDLCALL SDL_HasClipboardText(void);
+    /**
+     * \brief Returns a flag indicating whether the clipboard exists and contains a text string that is non-empty
+     *
+     * \sa SDL_GetClipboardText()
+     */
+    extern DECLSPEC SDL_bool SDLCALL SDL_HasClipboardText(void);
 
 
-/* Ends C function definitions when using C++ */
+    /* Ends C function definitions when using C++ */
 #ifdef __cplusplus
-/* *INDENT-OFF* */
+    /* *INDENT-OFF* */
 }
 /* *INDENT-ON* */
 #endif

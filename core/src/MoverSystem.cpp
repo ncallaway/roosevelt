@@ -5,7 +5,8 @@
 
 #include "PositionComponent.h"
 
-void MoverSystem::Update(EntityContainer* container) {
+void MoverSystem::Update(EntityContainer* container)
+{
     std::set<Entity*> entities = container->Query();
 
     std::set<Entity*>::iterator it;

@@ -21,7 +21,7 @@
 
 /**
  *  \file SDL_input.h
- *  
+ *
  *  Include file for lowlevel SDL input device handling.
  *
  *  This talks about individual devices, and not the system cursor. If you
@@ -44,39 +44,39 @@
 #ifdef __cplusplus
 /* *INDENT-OFF* */
 extern "C" {
-/* *INDENT-ON* */
+    /* *INDENT-ON* */
 #endif
 
 
-/* Function prototypes */
+    /* Function prototypes */
 
-/* !!! FIXME: real documentation
- * - Redetect devices
- * - This invalidates all existing device information from previous queries!
- * - There is an implicit (re)detect upon SDL_Init().
- */
-extern DECLSPEC int SDLCALL SDL_RedetectInputDevices(void);
+    /* !!! FIXME: real documentation
+     * - Redetect devices
+     * - This invalidates all existing device information from previous queries!
+     * - There is an implicit (re)detect upon SDL_Init().
+     */
+    extern DECLSPEC int SDLCALL SDL_RedetectInputDevices(void);
 
-/**
- *  \brief Get the number of mouse input devices available.
- */
-extern DECLSPEC int SDLCALL SDL_GetNumInputDevices(void);
+    /**
+     *  \brief Get the number of mouse input devices available.
+     */
+    extern DECLSPEC int SDLCALL SDL_GetNumInputDevices(void);
 
-/**
- *  \brief Gets the name of a device with the given index.
- *  
- *  \param index is the index of the device, whose name is to be returned.
- *  
- *  \return the name of the device with the specified index
- */
-extern DECLSPEC const char *SDLCALL SDL_GetInputDeviceName(int index);
+    /**
+     *  \brief Gets the name of a device with the given index.
+     *
+     *  \param index is the index of the device, whose name is to be returned.
+     *
+     *  \return the name of the device with the specified index
+     */
+    extern DECLSPEC const char* SDLCALL SDL_GetInputDeviceName(int index);
 
 
-extern DECLSPEC int SDLCALL SDL_IsDeviceDisconnected(int index);
+    extern DECLSPEC int SDLCALL SDL_IsDeviceDisconnected(int index);
 
-/* Ends C function definitions when using C++ */
+    /* Ends C function definitions when using C++ */
 #ifdef __cplusplus
-/* *INDENT-OFF* */
+    /* *INDENT-OFF* */
 }
 /* *INDENT-ON* */
 #endif

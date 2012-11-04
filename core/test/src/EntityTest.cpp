@@ -2,26 +2,30 @@
 #include "BaseComponent.h"
 #include "gtest/gtest.h"
 
-class TestComponent : public BaseComponent {
+class TestComponent : public BaseComponent
+{
     public:
         TestComponent();
         static const ComponentType TYPE;
 };
 
-TestComponent::TestComponent() : BaseComponent(TYPE) {
+TestComponent::TestComponent() : BaseComponent(TYPE)
+{
 }
 
 const ComponentType TestComponent::TYPE = EntityComponent::RegisterComponent();
 
-TEST(EntityId, SetId) {
-	Entity* entity = new Entity();
+TEST(EntityId, SetId)
+{
+    Entity* entity = new Entity();
 
-	entity->SetId("test");
-	EXPECT_EQ("test", entity->GetId());
+    entity->SetId("test");
+    EXPECT_EQ("test", entity->GetId());
 }
 
-TEST(EntityComponent, HasComponent) {
-	Entity* entity = new Entity();
+TEST(EntityComponent, HasComponent)
+{
+    Entity* entity = new Entity();
 
     /* Start with no components */
     EXPECT_FALSE(entity->HasComponent(TestComponent::TYPE));
@@ -35,9 +39,10 @@ TEST(EntityComponent, HasComponent) {
     EXPECT_FALSE(entity->HasComponent(TestComponent::TYPE));
 }
 
-TEST(EntityComponent, GetComponent) {
-	Entity* entity = new Entity();
-     EntityComponent* testComponent = new TestComponent();
+TEST(EntityComponent, GetComponent)
+{
+    Entity* entity = new Entity();
+    EntityComponent* testComponent = new TestComponent();
 
     /* Null when there is no component */
     EXPECT_EQ(NULL, entity->GetComponent(TestComponent::TYPE));
@@ -51,8 +56,9 @@ TEST(EntityComponent, GetComponent) {
     EXPECT_EQ(NULL, entity->GetComponent(TestComponent::TYPE));
 }
 
-TEST(EntityComponent, AddComponent) {
-	Entity* entity = new Entity();
+TEST(EntityComponent, AddComponent)
+{
+    Entity* entity = new Entity();
     EntityComponent* testComponent = new TestComponent();
 
     /* Can add the component */
@@ -80,8 +86,9 @@ TEST(EntityComponent, AddComponent) {
     EXPECT_EQ(alternateTestComponent, entity->GetComponent(TestComponent::TYPE));
 }
 
-TEST(EntityComponent, RemoveComponent) {
-	Entity* entity = new Entity();
+TEST(EntityComponent, RemoveComponent)
+{
+    Entity* entity = new Entity();
 
     /* Nothing happens when there is nothing to remove. */
     EXPECT_FALSE(entity->RemoveComponent(TestComponent::TYPE));

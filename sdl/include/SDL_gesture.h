@@ -21,7 +21,7 @@
 
 /**
  *  \file SDL_gesture.h
- *  
+ *
  *  Include file for SDL gesture event handling.
  */
 
@@ -40,47 +40,47 @@
 #ifdef __cplusplus
 /* *INDENT-OFF* */
 extern "C" {
-/* *INDENT-ON* */
+    /* *INDENT-ON* */
 #endif
 
-typedef Sint64 SDL_GestureID;
+    typedef Sint64 SDL_GestureID;
 
-/* Function prototypes */
+    /* Function prototypes */
 
-/**
- *  \brief Begin Recording a gesture on the specified touch, or all touches (-1)
- *
- *
- */
-extern DECLSPEC int SDLCALL SDL_RecordGesture(SDL_TouchID touchId);
-
-
-/**
- *  \brief Save all currently loaded Dollar Gesture templates
- *
- *
- */
-extern DECLSPEC int SDLCALL SDL_SaveAllDollarTemplates(SDL_RWops *src);
-
-/**
- *  \brief Save a currently loaded Dollar Gesture template
- *
- *
- */
-extern DECLSPEC int SDLCALL SDL_SaveDollarTemplate(SDL_GestureID gestureId,SDL_RWops *src);
+    /**
+     *  \brief Begin Recording a gesture on the specified touch, or all touches (-1)
+     *
+     *
+     */
+    extern DECLSPEC int SDLCALL SDL_RecordGesture(SDL_TouchID touchId);
 
 
-/**
- *  \brief Load Dollar Gesture templates from a file
- *
- *
- */
-extern DECLSPEC int SDLCALL SDL_LoadDollarTemplates(SDL_TouchID touchId, SDL_RWops *src);
+    /**
+     *  \brief Save all currently loaded Dollar Gesture templates
+     *
+     *
+     */
+    extern DECLSPEC int SDLCALL SDL_SaveAllDollarTemplates(SDL_RWops* src);
+
+    /**
+     *  \brief Save a currently loaded Dollar Gesture template
+     *
+     *
+     */
+    extern DECLSPEC int SDLCALL SDL_SaveDollarTemplate(SDL_GestureID gestureId,SDL_RWops* src);
 
 
-/* Ends C function definitions when using C++ */
+    /**
+     *  \brief Load Dollar Gesture templates from a file
+     *
+     *
+     */
+    extern DECLSPEC int SDLCALL SDL_LoadDollarTemplates(SDL_TouchID touchId, SDL_RWops* src);
+
+
+    /* Ends C function definitions when using C++ */
 #ifdef __cplusplus
-/* *INDENT-OFF* */
+    /* *INDENT-OFF* */
 }
 /* *INDENT-ON* */
 #endif

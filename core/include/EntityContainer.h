@@ -14,7 +14,8 @@ class Entity;
  interface), the Entity makes specific Entities available to an EntitySystem. These EntitySystems
  will process the various Entities within the container and drive the main logic of the game.
 */
-class EntityContainer {
+class EntityContainer
+{
     public:
         /**
          Add an Entity to this EntityContainer. Each Entity may only be added to the container

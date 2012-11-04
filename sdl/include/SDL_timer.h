@@ -24,7 +24,7 @@
 
 /**
  *  \file SDL_timer.h
- *  
+ *
  *  Header for the SDL time management routines.
  */
 
@@ -36,68 +36,68 @@
 #ifdef __cplusplus
 /* *INDENT-OFF* */
 extern "C" {
-/* *INDENT-ON* */
+    /* *INDENT-ON* */
 #endif
 
-/**
- * \brief Get the number of milliseconds since the SDL library initialization.
- *  
- * \note This value wraps if the program runs for more than ~49 days.
- */
-extern DECLSPEC Uint32 SDLCALL SDL_GetTicks(void);
+    /**
+     * \brief Get the number of milliseconds since the SDL library initialization.
+     *
+     * \note This value wraps if the program runs for more than ~49 days.
+     */
+    extern DECLSPEC Uint32 SDLCALL SDL_GetTicks(void);
 
-/**
- * \brief Get the current value of the high resolution counter
- */
-extern DECLSPEC Uint64 SDLCALL SDL_GetPerformanceCounter(void);
+    /**
+     * \brief Get the current value of the high resolution counter
+     */
+    extern DECLSPEC Uint64 SDLCALL SDL_GetPerformanceCounter(void);
 
-/**
- * \brief Get the count per second of the high resolution counter
- */
-extern DECLSPEC Uint64 SDLCALL SDL_GetPerformanceFrequency(void);
+    /**
+     * \brief Get the count per second of the high resolution counter
+     */
+    extern DECLSPEC Uint64 SDLCALL SDL_GetPerformanceFrequency(void);
 
-/**
- * \brief Wait a specified number of milliseconds before returning.
- */
-extern DECLSPEC void SDLCALL SDL_Delay(Uint32 ms);
+    /**
+     * \brief Wait a specified number of milliseconds before returning.
+     */
+    extern DECLSPEC void SDLCALL SDL_Delay(Uint32 ms);
 
-/**
- *  Function prototype for the timer callback function.
- *  
- *  The callback function is passed the current timer interval and returns
- *  the next timer interval.  If the returned value is the same as the one
- *  passed in, the periodic alarm continues, otherwise a new alarm is
- *  scheduled.  If the callback returns 0, the periodic alarm is cancelled.
- */
-typedef Uint32 (SDLCALL * SDL_TimerCallback) (Uint32 interval, void *param);
+    /**
+     *  Function prototype for the timer callback function.
+     *
+     *  The callback function is passed the current timer interval and returns
+     *  the next timer interval.  If the returned value is the same as the one
+     *  passed in, the periodic alarm continues, otherwise a new alarm is
+     *  scheduled.  If the callback returns 0, the periodic alarm is cancelled.
+     */
+    typedef Uint32 (SDLCALL* SDL_TimerCallback) (Uint32 interval, void* param);
 
-/**
- * Definition of the timer ID type.
- */
-typedef int SDL_TimerID;
+    /**
+     * Definition of the timer ID type.
+     */
+    typedef int SDL_TimerID;
 
-/**
- * \brief Add a new timer to the pool of timers already running.
- *
- * \return A timer ID, or NULL when an error occurs.
- */
-extern DECLSPEC SDL_TimerID SDLCALL SDL_AddTimer(Uint32 interval,
-                                                 SDL_TimerCallback callback,
-                                                 void *param);
+    /**
+     * \brief Add a new timer to the pool of timers already running.
+     *
+     * \return A timer ID, or NULL when an error occurs.
+     */
+    extern DECLSPEC SDL_TimerID SDLCALL SDL_AddTimer(Uint32 interval,
+            SDL_TimerCallback callback,
+            void* param);
 
-/**
- * \brief Remove a timer knowing its ID.
- *
- * \return A boolean value indicating success or failure.
- *
- * \warning It is not safe to remove a timer multiple times.
- */
-extern DECLSPEC SDL_bool SDLCALL SDL_RemoveTimer(SDL_TimerID id);
+    /**
+     * \brief Remove a timer knowing its ID.
+     *
+     * \return A boolean value indicating success or failure.
+     *
+     * \warning It is not safe to remove a timer multiple times.
+     */
+    extern DECLSPEC SDL_bool SDLCALL SDL_RemoveTimer(SDL_TimerID id);
 
 
-/* Ends C function definitions when using C++ */
+    /* Ends C function definitions when using C++ */
 #ifdef __cplusplus
-/* *INDENT-OFF* */
+    /* *INDENT-OFF* */
 }
 /* *INDENT-ON* */
 #endif

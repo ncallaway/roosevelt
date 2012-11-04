@@ -2,7 +2,8 @@
 
 #include "Entity.h"
 
-bool EntityContainer::AddEntity(Entity* entity) {
+bool EntityContainer::AddEntity(Entity* entity)
+{
     if (entity == NULL) {
         return false;
     }
@@ -15,7 +16,8 @@ bool EntityContainer::AddEntity(Entity* entity) {
     return true;
 }
 
-bool EntityContainer::RemoveEntity(Entity* entity) {
+bool EntityContainer::RemoveEntity(Entity* entity)
+{
     if (entity == NULL) {
         return false;
     }
@@ -28,14 +30,16 @@ bool EntityContainer::RemoveEntity(Entity* entity) {
     return false;
 }
 
-bool EntityContainer::HasEntity(Entity* entity) {
+bool EntityContainer::HasEntity(Entity* entity)
+{
     if (entity == NULL) {
         return false;
     }
     return (m_entities.count(entity) > 0);
 }
 
-std::set<Entity*> EntityContainer::Query() {
+std::set<Entity*> EntityContainer::Query()
+{
     std::set<Entity*> queryResults (m_entities);
     return queryResults;
 }

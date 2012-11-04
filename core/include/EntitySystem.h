@@ -15,7 +15,8 @@ class EntityContainer;
  PHYSICS_COMPONENT. The PhysicsSystem might then apply velocity and collisions to the various
  Entities, and update the data in the relative components.
 */
-class EntitySystem {
+class EntitySystem
+{
     public:
         /**
          Virtaul destructor! Yay not memory leaks.

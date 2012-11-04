@@ -21,7 +21,7 @@
 
 /**
  *  \file SDL_touch.h
- *  
+ *
  *  Include file for SDL touch event handling.
  */
 
@@ -37,84 +37,84 @@
 #ifdef __cplusplus
 /* *INDENT-OFF* */
 extern "C" {
-/* *INDENT-ON* */
+    /* *INDENT-ON* */
 #endif
 
 
-typedef Sint64 SDL_TouchID;
-typedef Sint64 SDL_FingerID;
+    typedef Sint64 SDL_TouchID;
+    typedef Sint64 SDL_FingerID;
 
 
-struct SDL_Finger {
-  SDL_FingerID id;
-  Uint16 x;
-  Uint16 y;
-  Uint16 pressure;
-  Uint16 xdelta;
-  Uint16 ydelta;
-  Uint16 last_x, last_y,last_pressure;  /* the last reported coordinates */
-  SDL_bool down;
-};
+    struct SDL_Finger {
+        SDL_FingerID id;
+        Uint16 x;
+        Uint16 y;
+        Uint16 pressure;
+        Uint16 xdelta;
+        Uint16 ydelta;
+        Uint16 last_x, last_y,last_pressure;  /* the last reported coordinates */
+        SDL_bool down;
+    };
 
-typedef struct SDL_Touch SDL_Touch;
-typedef struct SDL_Finger SDL_Finger;
-
-
-struct SDL_Touch {
-  
-  /* Free the touch when it's time */
-  void (*FreeTouch) (SDL_Touch * touch);
-  
-  /* data common for tablets */
-  float pressure_max, pressure_min;
-  float x_max,x_min;
-  float y_max,y_min;
-  Uint16 xres,yres,pressureres;
-  float native_xres,native_yres,native_pressureres;
-  float tilt_x;                 /* for future use */
-  float tilt_y;                 /* for future use */
-  float rotation;               /* for future use */
-  
-  /* Data common to all touch */
-  SDL_TouchID id;
-  SDL_Window *focus;
-  
-  char *name;
-  Uint8 buttonstate;
-  SDL_bool relative_mode;
-  SDL_bool flush_motion;
-
-  int num_fingers;
-  int max_fingers;
-  SDL_Finger** fingers;
-    
-  void *driverdata;
-};
+    typedef struct SDL_Touch SDL_Touch;
+    typedef struct SDL_Finger SDL_Finger;
 
 
+    struct SDL_Touch {
 
-/* Function prototypes */
+        /* Free the touch when it's time */
+        void (*FreeTouch) (SDL_Touch* touch);
 
-/**
- *  \brief Get the touch object at the given id.
- *
- *
- */
-  extern DECLSPEC SDL_Touch* SDLCALL SDL_GetTouch(SDL_TouchID id);
+        /* data common for tablets */
+        float pressure_max, pressure_min;
+        float x_max,x_min;
+        float y_max,y_min;
+        Uint16 xres,yres,pressureres;
+        float native_xres,native_yres,native_pressureres;
+        float tilt_x;                 /* for future use */
+        float tilt_y;                 /* for future use */
+        float rotation;               /* for future use */
+
+        /* Data common to all touch */
+        SDL_TouchID id;
+        SDL_Window* focus;
+
+        char* name;
+        Uint8 buttonstate;
+        SDL_bool relative_mode;
+        SDL_bool flush_motion;
+
+        int num_fingers;
+        int max_fingers;
+        SDL_Finger** fingers;
+
+        void* driverdata;
+    };
 
 
 
-/**
- *  \brief Get the finger object of the given touch, at the given id.
- *
- *
- */
-  extern 
-  DECLSPEC SDL_Finger* SDLCALL SDL_GetFinger(SDL_Touch *touch, SDL_FingerID id);
+    /* Function prototypes */
 
-/* Ends C function definitions when using C++ */
+    /**
+     *  \brief Get the touch object at the given id.
+     *
+     *
+     */
+    extern DECLSPEC SDL_Touch* SDLCALL SDL_GetTouch(SDL_TouchID id);
+
+
+
+    /**
+     *  \brief Get the finger object of the given touch, at the given id.
+     *
+     *
+     */
+    extern
+    DECLSPEC SDL_Finger* SDLCALL SDL_GetFinger(SDL_Touch* touch, SDL_FingerID id);
+
+    /* Ends C function definitions when using C++ */
 #ifdef __cplusplus
-/* *INDENT-OFF* */
+    /* *INDENT-OFF* */
 }
 /* *INDENT-ON* */
 #endif

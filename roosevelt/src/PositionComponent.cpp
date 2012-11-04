@@ -7,19 +7,23 @@ PositionComponent::PositionComponent() : BaseComponent(TYPE),
     m_y(0)
 {}
 
-double PositionComponent::X() {
+double PositionComponent::X()
+{
     return m_x;
 }
 
-double PositionComponent::Y() {
+double PositionComponent::Y()
+{
     return m_y;
 }
 
-void PositionComponent::SetX(double x) {
+void PositionComponent::SetX(double x)
+{
     m_x = x;
 }
 
-void PositionComponent::SetY(double y) {
+void PositionComponent::SetY(double y)
+{
     m_y = y;
 }
 

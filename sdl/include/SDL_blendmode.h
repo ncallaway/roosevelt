@@ -21,7 +21,7 @@
 
 /**
  *  \file SDL_blendmode.h
- *  
+ *
  *  Header file declaring the SDL_BlendMode enumeration
  */
 
@@ -33,23 +33,24 @@
 #ifdef __cplusplus
 /* *INDENT-OFF* */
 extern "C" {
-/* *INDENT-ON* */
+    /* *INDENT-ON* */
 #endif
 
-/**
- *  \brief The blend mode used in SDL_RenderCopy() and drawing operations.
- */
-typedef enum
-{
-    SDL_BLENDMODE_NONE = 0x00000000,     /**< No blending */
-    SDL_BLENDMODE_BLEND = 0x00000001,    /**< dst = (src * A) + (dst * (1-A)) */
-    SDL_BLENDMODE_ADD = 0x00000002,      /**< dst = (src * A) + dst */
-    SDL_BLENDMODE_MOD = 0x00000004       /**< dst = src * dst */
-} SDL_BlendMode;
+    /**
+     *  \brief The blend mode used in SDL_RenderCopy() and drawing operations.
+     */
+    typedef enum
+    {
+        SDL_BLENDMODE_NONE = 0x00000000,     /**< No blending */
+        SDL_BLENDMODE_BLEND = 0x00000001,    /**< dst = (src * A) + (dst * (1-A)) */
+        SDL_BLENDMODE_ADD = 0x00000002,      /**< dst = (src * A) + dst */
+        SDL_BLENDMODE_MOD = 0x00000004       /**< dst = src * dst */
+    }
+                        SDL_BlendMode;
 
-/* Ends C function definitions when using C++ */
+    /* Ends C function definitions when using C++ */
 #ifdef __cplusplus
-/* *INDENT-OFF* */
+    /* *INDENT-OFF* */
 }
 /* *INDENT-ON* */
 #endif

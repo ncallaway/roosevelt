@@ -7,7 +7,8 @@
 
 #include "PositionComponent.h"
 
-void PrinterSystem::Update(EntityContainer* container) {
+void PrinterSystem::Update(EntityContainer* container)
+{
     std::set<Entity*> entities = container->Query();
 
     std::set<Entity*>::iterator it;

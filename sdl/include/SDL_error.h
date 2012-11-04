@@ -21,7 +21,7 @@
 
 /**
  *  \file SDL_error.h
- *  
+ *
  *  Simple error message routines for SDL.
  */
 
@@ -35,38 +35,37 @@
 #ifdef __cplusplus
 /* *INDENT-OFF* */
 extern "C" {
-/* *INDENT-ON* */
+    /* *INDENT-ON* */
 #endif
 
-/* Public functions */
-extern DECLSPEC void SDLCALL SDL_SetError(const char *fmt, ...);
-extern DECLSPEC const char *SDLCALL SDL_GetError(void);
-extern DECLSPEC void SDLCALL SDL_ClearError(void);
+    /* Public functions */
+    extern DECLSPEC void SDLCALL SDL_SetError(const char* fmt, ...);
+    extern DECLSPEC const char* SDLCALL SDL_GetError(void);
+    extern DECLSPEC void SDLCALL SDL_ClearError(void);
 
-/**
- *  \name Internal error functions
- *  
- *  \internal 
- *  Private error reporting function - used internally.
- */
-/*@{*/
-#define SDL_OutOfMemory()	SDL_Error(SDL_ENOMEM)
-#define SDL_Unsupported()	SDL_Error(SDL_UNSUPPORTED)
-typedef enum
-{
-    SDL_ENOMEM,
-    SDL_EFREAD,
-    SDL_EFWRITE,
-    SDL_EFSEEK,
-    SDL_UNSUPPORTED,
-    SDL_LASTERROR
-} SDL_errorcode;
-extern DECLSPEC void SDLCALL SDL_Error(SDL_errorcode code);
-/*@}*//*Internal error functions*/
+    /**
+     *  \name Internal error functions
+     *
+     *  \internal
+     *  Private error reporting function - used internally.
+     */
+    /*@{*/
+#define SDL_OutOfMemory()   SDL_Error(SDL_ENOMEM)
+#define SDL_Unsupported()   SDL_Error(SDL_UNSUPPORTED)
+    typedef enum {
+        SDL_ENOMEM,
+        SDL_EFREAD,
+        SDL_EFWRITE,
+        SDL_EFSEEK,
+        SDL_UNSUPPORTED,
+        SDL_LASTERROR
+    } SDL_errorcode;
+    extern DECLSPEC void SDLCALL SDL_Error(SDL_errorcode code);
+    /*@}*//*Internal error functions*/
 
-/* Ends C function definitions when using C++ */
+    /* Ends C function definitions when using C++ */
 #ifdef __cplusplus
-/* *INDENT-OFF* */
+    /* *INDENT-OFF* */
 }
 /* *INDENT-ON* */
 #endif

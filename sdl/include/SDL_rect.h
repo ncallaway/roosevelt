@@ -21,7 +21,7 @@
 
 /**
  *  \file SDL_rect.h
- *  
+ *
  *  Header file for SDL_rect definition and management functions.
  */
 
@@ -38,95 +38,93 @@
 #ifdef __cplusplus
 /* *INDENT-OFF* */
 extern "C" {
-/* *INDENT-ON* */
+    /* *INDENT-ON* */
 #endif
 
-/**
- *  \brief  The structure that defines a point
- *
- *  \sa SDL_EnclosePoints
- */
-typedef struct
-{
-    int x;
-    int y;
-} SDL_Point;
+    /**
+     *  \brief  The structure that defines a point
+     *
+     *  \sa SDL_EnclosePoints
+     */
+    typedef struct {
+        int x;
+        int y;
+    } SDL_Point;
 
-/**
- *  \brief A rectangle, with the origin at the upper left.
- *  
- *  \sa SDL_RectEmpty
- *  \sa SDL_RectEquals
- *  \sa SDL_HasIntersection
- *  \sa SDL_IntersectRect
- *  \sa SDL_UnionRect
- *  \sa SDL_EnclosePoints
- */
-typedef struct SDL_Rect
-{
-    int x, y;
-    int w, h;
-} SDL_Rect;
+    /**
+     *  \brief A rectangle, with the origin at the upper left.
+     *
+     *  \sa SDL_RectEmpty
+     *  \sa SDL_RectEquals
+     *  \sa SDL_HasIntersection
+     *  \sa SDL_IntersectRect
+     *  \sa SDL_UnionRect
+     *  \sa SDL_EnclosePoints
+     */
+    typedef struct SDL_Rect {
+        int x, y;
+        int w, h;
+    } SDL_Rect;
 
-/**
- *  \brief Returns true if the rectangle has no area.
- */
+    /**
+     *  \brief Returns true if the rectangle has no area.
+     */
 #define SDL_RectEmpty(X)    ((!(X)) || ((X)->w <= 0) || ((X)->h <= 0))
 
-/**
- *  \brief Returns true if the two rectangles are equal.
- */
+    /**
+     *  \brief Returns true if the two rectangles are equal.
+     */
 #define SDL_RectEquals(A, B)   (((A)) && ((B)) && \
                                 ((A)->x == (B)->x) && ((A)->y == (B)->y) && \
                                 ((A)->w == (B)->w) && ((A)->h == (B)->h))
 
-/**
- *  \brief Determine whether two rectangles intersect.
- *  
- *  \return SDL_TRUE if there is an intersection, SDL_FALSE otherwise.
- */
-extern DECLSPEC SDL_bool SDLCALL SDL_HasIntersection(const SDL_Rect * A,
-                                                     const SDL_Rect * B);
+    /**
+     *  \brief Determine whether two rectangles intersect.
+     *
+     *  \return SDL_TRUE if there is an intersection, SDL_FALSE otherwise.
+     */
+    extern DECLSPEC SDL_bool SDLCALL SDL_HasIntersection(const SDL_Rect* A,
+            const SDL_Rect* B);
 
-/**
- *  \brief Calculate the intersection of two rectangles.
- *  
- *  \return SDL_TRUE if there is an intersection, SDL_FALSE otherwise.
- */
-extern DECLSPEC SDL_bool SDLCALL SDL_IntersectRect(const SDL_Rect * A,
-                                                   const SDL_Rect * B,
-                                                   SDL_Rect * result);
+    /**
+     *  \brief Calculate the intersection of two rectangles.
+     *
+     *  \return SDL_TRUE if there is an intersection, SDL_FALSE otherwise.
+     */
+    extern DECLSPEC SDL_bool SDLCALL SDL_IntersectRect(const SDL_Rect* A,
+            const SDL_Rect* B,
+            SDL_Rect* result);
 
-/**
- *  \brief Calculate the union of two rectangles.
- */
-extern DECLSPEC void SDLCALL SDL_UnionRect(const SDL_Rect * A,
-                                           const SDL_Rect * B,
-                                           SDL_Rect * result);
+    /**
+     *  \brief Calculate the union of two rectangles.
+     */
+    extern DECLSPEC void SDLCALL SDL_UnionRect(const SDL_Rect* A,
+            const SDL_Rect* B,
+            SDL_Rect* result);
 
-/**
- *  \brief Calculate a minimal rectangle enclosing a set of points
- *
- *  \return SDL_TRUE if any points were within the clipping rect
- */
-extern DECLSPEC SDL_bool SDLCALL SDL_EnclosePoints(const SDL_Point * points,
-                                                   int count,
-                                                   const SDL_Rect * clip,
-                                                   SDL_Rect * result);
+    /**
+     *  \brief Calculate a minimal rectangle enclosing a set of points
+     *
+     *  \return SDL_TRUE if any points were within the clipping rect
+     */
+    extern DECLSPEC SDL_bool SDLCALL SDL_EnclosePoints(const SDL_Point* points,
+            int count,
+            const SDL_Rect* clip,
+            SDL_Rect* result);
 
-/**
- *  \brief Calculate the intersection of a rectangle and line segment.
- *  
- *  \return SDL_TRUE if there is an intersection, SDL_FALSE otherwise.
- */
-extern DECLSPEC SDL_bool SDLCALL SDL_IntersectRectAndLine(const SDL_Rect *
-                                                          rect, int *X1,
-                                                          int *Y1, int *X2,
-                                                          int *Y2);
+    /**
+     *  \brief Calculate the intersection of a rectangle and line segment.
+     *
+     *  \return SDL_TRUE if there is an intersection, SDL_FALSE otherwise.
+     */
+    extern DECLSPEC SDL_bool SDLCALL SDL_IntersectRectAndLine(const SDL_Rect *
+            rect, int* X1,
+            int* Y1, int* X2,
+            int* Y2);
 
-/* Ends C function definitions when using C++ */
+    /* Ends C function definitions when using C++ */
 #ifdef __cplusplus
-/* *INDENT-OFF* */
+    /* *INDENT-OFF* */
 }
 /* *INDENT-ON* */
 #endif

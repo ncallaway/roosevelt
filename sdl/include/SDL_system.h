@@ -21,7 +21,7 @@
 
 /**
  *  \file SDL_system.h
- *  
+ *
  *  Include file for platform specific SDL API functions
  */
 
@@ -35,26 +35,26 @@
 #ifdef __cplusplus
 /* *INDENT-OFF* */
 extern "C" {
-/* *INDENT-ON* */
+    /* *INDENT-ON* */
 #endif
 
 #if __IPHONEOS__
 
 #include "SDL_video.h"
 
-extern DECLSPEC int SDLCALL SDL_iPhoneSetAnimationCallback(SDL_Window * window, int interval, void (*callback)(void*), void *callbackParam);
-extern DECLSPEC void SDLCALL SDL_iPhoneSetEventPump(SDL_bool enabled);
+    extern DECLSPEC int SDLCALL SDL_iPhoneSetAnimationCallback(SDL_Window* window, int interval, void (*callback)(void*), void* callbackParam);
+    extern DECLSPEC void SDLCALL SDL_iPhoneSetEventPump(SDL_bool enabled);
 
-extern DECLSPEC int SDLCALL SDL_iPhoneKeyboardShow(SDL_Window * window);
-extern DECLSPEC int SDLCALL SDL_iPhoneKeyboardHide(SDL_Window * window);
-extern DECLSPEC SDL_bool SDLCALL SDL_iPhoneKeyboardIsShown(SDL_Window * window);
-extern DECLSPEC int SDLCALL SDL_iPhoneKeyboardToggle(SDL_Window * window);
+    extern DECLSPEC int SDLCALL SDL_iPhoneKeyboardShow(SDL_Window* window);
+    extern DECLSPEC int SDLCALL SDL_iPhoneKeyboardHide(SDL_Window* window);
+    extern DECLSPEC SDL_bool SDLCALL SDL_iPhoneKeyboardIsShown(SDL_Window* window);
+    extern DECLSPEC int SDLCALL SDL_iPhoneKeyboardToggle(SDL_Window* window);
 
 #endif
 
-/* Ends C function definitions when using C++ */
+    /* Ends C function definitions when using C++ */
 #ifdef __cplusplus
-/* *INDENT-OFF* */
+    /* *INDENT-OFF* */
 }
 /* *INDENT-ON* */
 #endif

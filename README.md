@@ -13,5 +13,13 @@ Download and extract to a folder named `gmock` and placed within this test direc
 ## Building ##
 
     cd build
-	cmake .. -G "Your Generator" (ex: cmake .. -G "Visual Studio 11")
-	[build generated files!]
+    cmake .. -G "Your Generator" (ex: cmake .. -G "Visual Studio 11")
+    [build generated files!]
+
+## Styling ##
+To style code for submission you will need [Artistic Style](http://astyle.sourceforge.net/). Ensure the binary for astyle is on your path.
+
+Then simply run:
+
+    astyle --recursive --options=astyle "*.cpp" "*.h"
+

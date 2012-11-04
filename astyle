@@ -1,0 +1,9 @@
+--indent-classes
+--indent-cases
+--indent-col1-comments
+--add-brackets
+--convert-tabs
+--indent=spaces=4
+-A10
+--brackets=attach
+--align-pointer=type

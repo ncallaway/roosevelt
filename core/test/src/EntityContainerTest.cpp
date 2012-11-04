@@ -2,14 +2,15 @@
 #include "Entity.h"
 #include "gtest/gtest.h"
 
-TEST(EntityContainer, AddEntity) {
+TEST(EntityContainer, AddEntity)
+{
     EntityContainer* container = new EntityContainer();
     Entity* entity = new Entity();
     Entity* secondEntity = new Entity();
-    
+
     /* Can add new entities */
     EXPECT_TRUE(container->AddEntity(entity));
-    
+
     /* Cannot add duplicate entities */
     EXPECT_FALSE(container->AddEntity(entity));
 
@@ -24,13 +25,14 @@ TEST(EntityContainer, AddEntity) {
     EXPECT_FALSE(container->AddEntity(NULL));
 }
 
-TEST(EntityContainer, RemoveEntity) {
+TEST(EntityContainer, RemoveEntity)
+{
     EntityContainer* container = new EntityContainer();
     Entity* entity = new Entity();
-    
+
     /* Can not remove non-existant entities */
     EXPECT_FALSE(container->RemoveEntity(entity));
-    
+
     /* Can remove added entities */
     container->AddEntity(entity);
     EXPECT_TRUE(container->RemoveEntity(entity));
@@ -42,14 +44,15 @@ TEST(EntityContainer, RemoveEntity) {
     EXPECT_FALSE(container->RemoveEntity(NULL));
 }
 
-TEST(EntityContainer, HasEntity) {
+TEST(EntityContainer, HasEntity)
+{
     EntityContainer* container = new EntityContainer();
     Entity* entity = new Entity();
     Entity* secondEntity = new Entity();
-    
+
     /* Nothing before additions */
     EXPECT_FALSE(container->HasEntity(entity));
-    
+
     /* Has newly added entities */
     container->AddEntity(entity);
     EXPECT_TRUE(container->HasEntity(entity));
@@ -65,15 +68,16 @@ TEST(EntityContainer, HasEntity) {
     EXPECT_FALSE(container->RemoveEntity(NULL));
 }
 
-TEST(EntityContainer, Query) {
+TEST(EntityContainer, Query)
+{
     EntityContainer* container = new EntityContainer();
     Entity* entity = new Entity();
     Entity* secondEntity = new Entity();
-     std::set<Entity*> elements = container->Query();
-    
+    std::set<Entity*> elements = container->Query();
+
     /* Newly constructed containers have no elements */
     EXPECT_EQ(0, elements.size());
-    
+
     /* Have entity (and only entity) */
     container->AddEntity(entity);
     elements = container->Query();
