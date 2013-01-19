@@ -1,6 +1,7 @@
 # Output directories
 build/
 doc/
+lib/
 
 # Dependencies which you should acquire yourself!
 gtest/
