@@ -2,9 +2,13 @@
 build/
 doc/
 lib/
+bin/
 
 # Dependencies which you should acquire yourself!
 gtest/
 
 # Developer configuration stuff
 dev.config
+
+# ctags
+.tags*
